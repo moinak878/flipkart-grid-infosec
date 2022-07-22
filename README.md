@@ -12,3 +12,4 @@ repo for flipkart grid infosec 2022 challenge
 * https://0x00sec.org/t/tutorial-creating-yara-signatures-for-malware-detection/5453
 * Malware Hash : https://oasis-open.github.io/cti-documentation/examples/malware-indicator-for-file-hash.html
 * Virus Total API : https://developers.virustotal.com/reference/overview
+* SandBox(C) : https://blog.cloudflare.com/sandboxing-in-linux-with-zero-lines-of-code/
