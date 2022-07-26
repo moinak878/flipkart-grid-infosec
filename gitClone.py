@@ -5,6 +5,8 @@ import validators
 import shutil
 from git import Repo
 
+from IP_Carve import ip_carve
+
 
 dirName='tempDir'
 
@@ -12,7 +14,7 @@ def listFiles():
 	res = []
 	for path in os.listdir(dirName):
 		if os.path.isfile(os.path.join(dirName, path)):
-			res.append(path)
+			res.append(ip_carve(path))
 	print(res)
 
 def cloneRepo(git_url):
