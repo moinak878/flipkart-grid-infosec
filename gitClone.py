@@ -1,11 +1,13 @@
 # python gitClone.py url
+import imp
 import os
 import sys
 import validators
 import shutil
+from IP_Carve import ip_carve
 from git import Repo
 
-from IP_Carve import ip_carve
+
 
 
 dirName='tempDir'
@@ -13,8 +15,9 @@ dirName='tempDir'
 def listFiles():
 	res = []
 	for path in os.listdir(dirName):
-		if os.path.isfile(os.path.join(dirName, path)):
-			res.append(ip_carve(path))
+		address = os.path.join(dirName, path)
+		if os.path.isfile(address):
+			res+=ip_carve(address)
 	print(res)
 
 def cloneRepo(git_url):
@@ -37,12 +40,14 @@ else:
 		os.mkdir(dirName)
 		print("Directory " , dirName ,  " Created ") 
 		isValidUrl(sys.argv[1])
+		shutil.rmtree(dirName)
 	except FileExistsError:
 		print("Directory " , dirName ,  " already exists")
 		shutil.rmtree(dirName)
 		os.mkdir(dirName)
 		print("Directory " , dirName ,  " Created ") 
 		isValidUrl(sys.argv[1])
+		shutil.rmtree(dirName)
 
 
 	
