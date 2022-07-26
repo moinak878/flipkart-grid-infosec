@@ -16,6 +16,8 @@ def c2_ip():
     # from url in data
     data_json = json.loads(response.read())
 
+    # TODO : 
+    # if data_json is empty use local cache of c2 servers
     c2List = []
 
     for i in data_json:

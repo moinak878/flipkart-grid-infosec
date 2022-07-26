@@ -4,25 +4,15 @@ import os
 import sys
 import validators
 import shutil
-from IP_Carve import ip_carve
 from git import Repo
-
-
+from checker import check
 
 
 dirName='tempDir'
 
-def listFiles():
-	res = []
-	for path in os.listdir(dirName):
-		address = os.path.join(dirName, path)
-		if os.path.isfile(address):
-			res+=ip_carve(address)
-	print(res)
-
 def cloneRepo(git_url):
 	Repo.clone_from(git_url, 'tempDir')
-	listFiles()
+	check()
 
 def isValidUrl(_url):
 	valid=validators.url(_url)
@@ -38,14 +28,14 @@ if n==1:
 else:
 	try:
 		os.mkdir(dirName)
-		print("Directory " , dirName ,  " Created ") 
+		# print("Directory " , dirName ,  " Created ") 
 		isValidUrl(sys.argv[1])
 		shutil.rmtree(dirName)
 	except FileExistsError:
-		print("Directory " , dirName ,  " already exists")
+		# print("Directory " , dirName ,  " already exists")
 		shutil.rmtree(dirName)
 		os.mkdir(dirName)
-		print("Directory " , dirName ,  " Created ") 
+		# print("Directory " , dirName ,  " Created ") 
 		isValidUrl(sys.argv[1])
 		shutil.rmtree(dirName)
 
