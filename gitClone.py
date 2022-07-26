@@ -1,5 +1,4 @@
 # python gitClone.py url
-import imp
 import os
 import sys
 import validators
