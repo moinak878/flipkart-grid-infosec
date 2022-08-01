@@ -21,5 +21,5 @@ def c2_ip():
     c2List = []
 
     for i in data_json:
-        c2List.append(i['ip_address'])
+        c2List.append(i['ip_address']) #fetching all the IP addresses from the list of dictionaries
     return c2List
